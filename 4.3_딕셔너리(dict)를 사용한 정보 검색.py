@@ -1,19 +1,21 @@
 #  Homewrok4.3
 #  작성자 : 장지헌
-#  작성일자 : 2023.03.16
+#  작성일자 : 2023.03.23
 #  딕셔너리(dict)를 사용한 정보 검색
 
 # Homework 4.3
 
 # 딕셔너리에 입력받은 국가와 수도를 추가하는 함수
 def insert_key_val(dict_country_capital):
-    #while반복문을 돌면서 .을 입력받을 때까지 계속 입력
-    while True:
-        str = input("국가와 수도를 입력하시오(. to quit) : ")
-        if str == ".":
-            break
-        #str을 공백을 기준으로 나누어 country, capital에 문자열을 저장
-        country, capital = str.split()
+    str = input("국가와 수도를 입력하시오 : ")
+    #str을 공백을 기준으로 나누어 country, capital에 문자열을 저장
+    country, capital = str.split()
+
+    #국가이름:수도이름 항목 추가에서 중복 여부 확인
+    if country in dict_country_capital:
+        print("이미 있는 나라입니다.")
+        insert_key_val(dict_country_capital)
+    else:
         #딕셔너리에 country, capital을 key, value쌍으로 저장
         dict_country_capital[country] = capital
 
@@ -35,6 +37,7 @@ def search_capital(dict_country_capital):
 dict_country_capital = dict()
 
 #실행
-insert_key_val(dict_country_capital)
+for i in range(10):
+    insert_key_val(dict_country_capital)
 print("나라 - 수도 :",dict_country_capital)
 search_capital(dict_country_capital)
