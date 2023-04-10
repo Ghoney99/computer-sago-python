@@ -45,56 +45,56 @@ class Student(Person):
     def __str__(self):
         return f"Student({self.name}, {self.age}, {self.st_id}, {self.major}, {self.gpa})"
 
-#두 학생(st1, st2)을 비교하여 정렬 기준(key)에 따라 순서를 결정하는 함수
-def compareStudent(st1, st2, key):
+	#두 학생(st1, st2)을 비교하여 정렬 기준(key)에 따라 순서를 결정하는 함수
+	def compareStudent(st1, st2, key):
 
-    #key 값이 "st_id"인 경우, st_id 값을 기준으로 작은 값이 우선
-    if key == "st_id":
-        if st1.st_id < st2.st_id:
-            return True
-        else:
-            return False
+    	#key 값이 "st_id"인 경우, st_id 값을 기준으로 작은 값이 우선
+    	if key == "st_id":
+        	if st1.st_id < st2.st_id:
+            	return True
+        	else:
+            	return False
         
-    #key 값이 "name"인 경우, name 값을 기준으로 알파벳 순서가 우선
-    elif key == "name":
-        if st1.name < st2.name:
-            return True
-        else:
-            return False
+	    #key 값이 "name"인 경우, name 값을 기준으로 알파벳 순서가 우선
+	    elif key == "name":
+	        if st1.name < st2.name:
+	            return True
+	        else:
+	            return False
         
-    #key 값이 "age"인 경우, age 값을 기준으로 작은 값이 우선
-    elif key == "age":
-        if st1.age < st2.age:
-            return True
-        else:
-            return False
+	    #key 값이 "age"인 경우, age 값을 기준으로 작은 값이 우선
+	    elif key == "age":
+	        if st1.age < st2.age:
+	            return True
+	        else:
+	            return False
         
-    #key 값이 "major"인 경우, major 값을 기준으로 ["ICE", "ME", "EE", "CE", "SE"]에 있는지 판단
-    elif key == "major":
-        if st1.major < st2.major:
-            return True
-        else:
-            return False
-        
-    #key 값이 "GPA"인 경우, gpa 값을 기준으로 큰 값이 우선
-    elif key == "GPA":
-        if st1.gpa > st2.gpa:
-            return True
-        else:
-            return False
+ 	   #key 값이 "major"인 경우, major 값을 기준으로 ["ICE", "ME", "EE", "CE", "SE"]에 있는지 판단
+ 	   elif key == "major":
+ 	       if st1.major < st2.major:
+ 	           return True
+ 	       else:
+ 	           return False
+ 	       
+	    #key 값이 "GPA"인 경우, gpa 값을 기준으로 큰 값이 우선
+	    elif key == "GPA":
+	        if st1.gpa > st2.gpa:
+	            return True
+	        else:
+	            return False
 
-def sortStudent(L_st, key):
-    for i in range(0, len(L_st)):
-        min_idx = i
-        for j in range(i+1, len(L_st)):
-            if compareStudent(L_st[j], L_st[min_idx], key):
-                min_idx = j
-        if min_idx != i:
-            L_st[i], L_st[min_idx] = L_st[min_idx], L_st[i]
+	def sortStudent(L_st, key):
+	    for i in range(0, len(L_st)):
+	        min_idx = i
+	        for j in range(i+1, len(L_st)):
+	            if compareStudent(L_st[j], L_st[min_idx], key):
+	                min_idx = j
+ 	       if min_idx != i:
+ 	           L_st[i], L_st[min_idx] = L_st[min_idx], L_st[i]
 
-def printStudents(L_st):
-    for s in range(len(L_st)):
-        print(L_st[s])
+	def printStudents(L_st):
+	    for s in range(len(L_st)):
+	        print(L_st[s])
 
 
 
@@ -107,9 +107,9 @@ if __name__ == "__main__":
         Student("Yoon", 23, 11321, "ICE", 4.2),
         Student("Wrong", 250, 15321, "??", 3.2),
         Student("Alpha", 18, 10111, "CS", 4.4),
-	    Student("Zedai", 19, 10222, "ICE", 4.4),
-	    Student("Beta", 20, 11333, "SE", 3.9),
-	    Student("Oliver", 21, 12555, "CE", 3.8)]
+	Student("Zedai", 19, 10222, "ICE", 4.4),
+	Student("Beta", 20, 11333, "SE", 3.9),
+	Student("Oliver", 21, 12555, "CE", 3.8)]
     ]
     
     print("students before sorting:")
