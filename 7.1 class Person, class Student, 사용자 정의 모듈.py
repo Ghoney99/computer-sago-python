@@ -29,7 +29,7 @@ class Student(Person):
             self.st_id = st_id
 
         # 전공이 주어진 범위에 해당하지 않는 경우, 오류 메시지 출력 후 major를 "None"으로 설정
-        if major not in ["ICE", "ME", "EE", "CE"]:
+        if major not in ["ICE", "ME", "EE", "CE", "SE"]:
             print(f"***ERROR in setting major(name:{name}, age:{age})")
             self.major = "None"
         else:
@@ -69,7 +69,7 @@ def compareStudent(st1, st2, key):
         else:
             return False
         
-    #key 값이 "major"인 경우, major 값을 기준으로 ["ICE", "ME", "EE", "CE"]에 있는지 판단
+    #key 값이 "major"인 경우, major 값을 기준으로 ["ICE", "ME", "EE", "CE", "SE"]에 있는지 판단
     elif key == "major":
         if st1.major < st2.major:
             return True
@@ -105,7 +105,11 @@ if __name__ == "__main__":
         Student("Park", 20, 10234, "ICE", 4.3),
         Student("Hong", 19, 13123, "CE", 4.1),
         Student("Yoon", 23, 11321, "ICE", 4.2),
-        Student("Wrong", 250, 15321, "??", 3.2)
+        Student("Wrong", 250, 15321, "??", 3.2),
+        Student("Alpha", 18, 10111, "CS", 4.4),
+	    Student("Zedai", 19, 10222, "ICE", 4.4),
+	    Student("Beta", 20, 11333, "SE", 3.9),
+	    Student("Oliver", 21, 12555, "CE", 3.8)]
     ]
     
     print("students before sorting:")
